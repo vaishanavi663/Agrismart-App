@@ -984,7 +984,7 @@ SOIL_ADVICE = {
     "Alluvial": ("Good fertility base; moderate doses usually sufficient.", "#00d4aa"),
 }
 
-CROP_ICONS = {r[0]: r[16] for r in CROP_KNOWLEDGE_RAW}
+CROP_ICONS = {r[0]: r[-1] for r in CROP_KNOWLEDGE_RAW}
 
 # ══════════════════════════════════════════════════════════════════════════════
 # RECOMMENDATION ENGINE
@@ -1276,7 +1276,7 @@ def conf_tag(text, level="high"):
 
 
 def top_crop_row(rank, name, pct, color):
-    icon = CROP_ICONS.get(name, "🌿")
+    icon = CROP_ICONS.get(best["crop"], "🌿")
     return f"""
     <div class='top-crop-row'>
       <span class='top-crop-rank'>#{rank}</span>
